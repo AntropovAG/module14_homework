@@ -28,7 +28,7 @@ function onClick() {
         error.innerHTML = 'You did not entert a number';
     }
     input1.value = "";
-    input2.value = " ";
+    input2.value = "";
 };
 
 button.addEventListener('click', onClick)
