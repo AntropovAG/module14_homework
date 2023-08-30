@@ -1,5 +1,18 @@
 const input = document.querySelector('.input');
 const button = document.querySelector('.button');
+const imageContainer = document.querySelector('.image-container');
+
+function renderImage(data) {
+    let images = "";
+    data.forEach((item) => {
+        let image = `
+        <img class="image" src=${item.download_url} alt=image>
+        <p>${item.author}</p>
+        `
+        images = images + image;
+    })
+    imageContainer.innerHTML = images;
+}
 
 function request(digit) {
     let xhr = new XMLHttpRequest();
@@ -11,6 +24,8 @@ function request(digit) {
             console.log(`Error status: ${xhr.status}`);
         } else {
             console.log(`Result: ${JSON.parse(xhr.response)}`);
+            let result = JSON.parse(xhr.response);
+            renderImage(result);
         }
     }
 
