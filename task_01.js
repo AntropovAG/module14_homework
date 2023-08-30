@@ -26,34 +26,52 @@ const xmlDOM = parser.parseFromString(xmlString, "text/xml");
 const list = xmlDOM.querySelector("list");
 const students = list.querySelectorAll("student");
 
-const firstStudentNode = students[0].querySelector("name");
-const firstStudentName = firstStudentNode.querySelector('first');
-const firstStudentSurname = firstStudentNode.querySelector('second');
-const firstStudentAge = students[0].querySelector('age');
-const firstStudentProf = students[0].querySelector('prof');
-const firstStudentLang = firstStudentNode.getAttribute('lang')
+let result = {
+    "list": []
+};
 
-const secondStudentNode = students[1].querySelector("name");
-const secondStudentName = secondStudentNode.querySelector('first');
-const secondStudentSurname = secondStudentNode.querySelector('second');
-const secondStudentAge = students[1].querySelector('age');
-const secondStudentProf = students[1].querySelector('prof');
-const secondStudentLang = secondStudentNode.getAttribute('lang')
+students.forEach(student => {
+    let object = {};
+    object.name = student.querySelector('first').textContent;
+    object.age = student.querySelector('age').textContent;
+    object.prof = student.querySelector('prof').textContent;
+    object.lang = student.getAttribute('lang');
 
-const result = [
-    {
-    name: `${firstStudentName.textContent} ${firstStudentSurname.textContent}`,
-    age: Number(firstStudentAge.textContent), 
-    prof: `${firstStudentProf.textContent}`, 
-    lang: Number(firstStudentAge)
-    },
+console.log(student.getAttribute('lang'));
+
+    result.list.push(object);
+
+}
+);
+
+// const firstStudentNode = students[0].querySelector("name");
+// const firstStudentName = firstStudentNode.querySelector('first');
+// const firstStudentSurname = firstStudentNode.querySelector('second');
+// const firstStudentAge = students[0].querySelector('age');
+// const firstStudentProf = students[0].querySelector('prof');
+// const firstStudentLang = firstStudentNode.getAttribute('lang')
+
+// const secondStudentNode = students[1].querySelector("name");
+// const secondStudentName = secondStudentNode.querySelector('first');
+// const secondStudentSurname = secondStudentNode.querySelector('second');
+// const secondStudentAge = students[1].querySelector('age');
+// const secondStudentProf = students[1].querySelector('prof');
+// const secondStudentLang = secondStudentNode.getAttribute('lang')
+
+// const result = [
+//     {
+//     name: `${firstStudentName.textContent} ${firstStudentSurname.textContent}`,
+//     age: Number(firstStudentAge.textContent), 
+//     prof: `${firstStudentProf.textContent}`, 
+//     lang: Number(firstStudentAge)
+//     },
     
-    {
-    name: `${secondStudentName.textContent} ${secondStudentSurname.textContent}`,
-    age: Number(secondStudentAge.textContent), 
-    prof: `${secondStudentProf.textContent}`, 
-    lang: Number(secondStudentAge)
-    },
-];
+//     {
+//     name: `${secondStudentName.textContent} ${secondStudentSurname.textContent}`,
+//     age: Number(secondStudentAge.textContent), 
+//     prof: `${secondStudentProf.textContent}`, 
+//     lang: Number(secondStudentAge)
+//     },
+// ];
 
 console.log(result);
