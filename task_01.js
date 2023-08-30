@@ -32,46 +32,14 @@ let result = {
 
 students.forEach(student => {
     let object = {};
-    object.name = student.querySelector('first').textContent;
+    let nodename = student.querySelector('name');
+
+    object.name = `${nodename.querySelector('first').textContent} ${nodename.querySelector('second').textContent}`;
     object.age = student.querySelector('age').textContent;
     object.prof = student.querySelector('prof').textContent;
-    object.lang = student.getAttribute('lang');
-
-console.log(student.getAttribute('lang'));
+    object.lang = nodename.getAttribute('lang');
 
     result.list.push(object);
-
-}
-);
-
-// const firstStudentNode = students[0].querySelector("name");
-// const firstStudentName = firstStudentNode.querySelector('first');
-// const firstStudentSurname = firstStudentNode.querySelector('second');
-// const firstStudentAge = students[0].querySelector('age');
-// const firstStudentProf = students[0].querySelector('prof');
-// const firstStudentLang = firstStudentNode.getAttribute('lang')
-
-// const secondStudentNode = students[1].querySelector("name");
-// const secondStudentName = secondStudentNode.querySelector('first');
-// const secondStudentSurname = secondStudentNode.querySelector('second');
-// const secondStudentAge = students[1].querySelector('age');
-// const secondStudentProf = students[1].querySelector('prof');
-// const secondStudentLang = secondStudentNode.getAttribute('lang')
-
-// const result = [
-//     {
-//     name: `${firstStudentName.textContent} ${firstStudentSurname.textContent}`,
-//     age: Number(firstStudentAge.textContent), 
-//     prof: `${firstStudentProf.textContent}`, 
-//     lang: Number(firstStudentAge)
-//     },
-    
-//     {
-//     name: `${secondStudentName.textContent} ${secondStudentSurname.textContent}`,
-//     age: Number(secondStudentAge.textContent), 
-//     prof: `${secondStudentProf.textContent}`, 
-//     lang: Number(secondStudentAge)
-//     },
-// ];
+});
 
 console.log(result);

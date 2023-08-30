@@ -16,21 +16,17 @@ const jsonString = `
 
 const data = JSON.parse(jsonString);
 
-const firstStudent = data.list[0];
-const secondStudent = data.list[1];
+let result = {
+    "list": []
+};
 
-const result = [
-    {
-    name: `${firstStudent.name}`,
-    age: Number(firstStudent.age), 
-    prof: `${firstStudent.prof}`
-    },
-    
-    {
-        name: `${secondStudent.name}`,
-        age: Number(secondStudent.age), 
-        prof: `${secondStudent.prof}`
-    },
-];
+data.list.forEach((item) => {
+    let object = {};
+    object.name = item.name;
+    object.age = item.age;
+    object.prof = item.prof;
+
+    result.list.push(object);
+});
 
 console.log(result);
